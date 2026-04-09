@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/Services/" />
+  <Folder Name="/Services/Catalogue/">
+    <Project Path="Services/Catalogue/Trade_Site_Catalogue/Trade_Site_Catalogue.csproj" />
+  </Folder>
+</Solution>
