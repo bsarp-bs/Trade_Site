@@ -3,4 +3,7 @@
   <Folder Name="/Services/Catalogue/">
     <Project Path="Services/Catalogue/Trade_Site_Catalogue/Trade_Site_Catalogue.csproj" />
   </Folder>
+  <Folder Name="/Services/Price_Drop/">
+    <Project Path="Services/Price_Drop/Trade_Site_Price_Drop/Trade_Site_Price_Drop.csproj" Id="218b1843-c1fc-47a1-aeb0-31582e3c76a3" />
+  </Folder>
 </Solution>

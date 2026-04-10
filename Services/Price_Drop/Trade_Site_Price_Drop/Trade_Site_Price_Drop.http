@@ -1,0 +1,6 @@
+@Trade_Site_Price_Drop_HostAddress = http://localhost:5186
+
+GET {{Trade_Site_Price_Drop_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
