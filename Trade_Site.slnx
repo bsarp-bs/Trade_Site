@@ -1,7 +1,28 @@
 <Solution>
   <Folder Name="/Services/" />
+  <Folder Name="/Services/Cargo/">
+    <Project Path="Services/Cargo/Trade_Site_Cargo_BusinessLayer/Trade_Site_Cargo_BusinessLayer.csproj" Id="1dd26597-65af-4572-83b3-166e1c7b712d" />
+    <Project Path="Services/Cargo/Trade_Site_Cargo_DataAccessLayer/Trade_Site_Cargo_DataAccessLayer.csproj" Id="d0aa7911-1579-42d8-aacf-608923e86a9b" />
+    <Project Path="Services/Cargo/Trade_Site_Cargo_DtoLayer/Trade_Site_Cargo_DtoLayer.csproj" Id="86af86a7-8ca1-4f28-a51e-5cc98ba74764" />
+    <Project Path="Services/Cargo/Trade_Site_Cargo_EntityLayer/Trade_Site_Cargo_EntityLayer.csproj" Id="fb612f7d-02d2-409c-b8c7-371c4b1ab42e" />
+    <Project Path="Services/Cargo/Trade_Site_Cargo_WebAPI/Trade_Site_Cargo_WebAPI.csproj" Id="ba351e26-aff3-411b-a249-ef28e562d3db" />
+  </Folder>
+  <Folder Name="/Services/Cart/">
+    <Project Path="Services/Cart/Trade_Site_Cart_WebAPI/Trade_Site_Cart_WebAPI.csproj" Id="d667ea4a-d035-4c12-b098-67836f9e5fdd" />
+  </Folder>
   <Folder Name="/Services/Catalogue/">
     <Project Path="Services/Catalogue/Trade_Site_Catalogue/Trade_Site_Catalogue.csproj" />
+  </Folder>
+  <Folder Name="/Services/Demand/" />
+  <Folder Name="/Services/Demand/Core/">
+    <Project Path="Services/Demand/Core/Trade_Site_Demand_Application/Trade_Site_Demand_Application.csproj" Id="7a9b828c-d569-404d-bf20-ef51bb6f362b" />
+    <Project Path="Services/Demand/Core/Trade_Site_Demand_Domain/Trade_Site_Demand_Domain.csproj" Id="bf2de0b0-8fed-4f34-8b17-682ae49c5e57" />
+  </Folder>
+  <Folder Name="/Services/Demand/Infrastructure/">
+    <Project Path="Services/Demand/Infrastructure/Trade_Site_Infrastructure_Persistence/Trade_Site_Infrastructure_Persistence.csproj" Id="7bf16c20-e35a-477c-93c3-129e68e6e2e4" />
+  </Folder>
+  <Folder Name="/Services/Demand/Presentation/">
+    <Project Path="Services/Demand/Presentation/Trade_Site_Demand_Presentation/Trade_Site_Demand_Presentation.csproj" Id="86978916-2c7c-497d-9054-e1f043b2e3e3" />
   </Folder>
   <Folder Name="/Services/Price_Drop/">
     <Project Path="Services/Price_Drop/Trade_Site_Price_Drop/Trade_Site_Price_Drop.csproj" Id="218b1843-c1fc-47a1-aeb0-31582e3c76a3" />
