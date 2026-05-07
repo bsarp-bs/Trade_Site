@@ -1,0 +1,35 @@
+﻿@model Trade_Site_WebUI_Dto_Layer.UI_Category_DTOs.UI_UpdateCategoryDto
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Areas/AdminArea/Views/AdminLayout/AdminLayoutIndex.cshtml";
+}
+
+<div class="card">
+    <div class="col-md-12">
+        <div class="card-body">
+
+            <h4 class="card-title">Update Category</h4>
+            <form class="forms-sample"
+                  method="post"
+                  asp-area="AdminArea"
+                  asp-action="UpdateCategory"
+                  asp-controller="AdminCategory">
+
+                 <input type="hidden" asp-for="CategoryID" />
+
+
+                <div class="form-group">
+                    <label asp-for="CategoryName"></label>
+                    <input asp-for="CategoryName" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+

@@ -14,23 +14,17 @@ namespace Trade_Site_Catalogue.Entity
         public string ProductDesc { get; set; }
 
 
-        [BsonRepresentation(BsonType.ObjectId)]
         public string CategoryID { get; set; }
         [BsonIgnore]
         public Category Category { get; set; }
+        
 
-
-
-
-        [BsonRepresentation(BsonType.ObjectId)]
         public string ProductPhotoID { get; set; }
         [BsonIgnore]
         public ProductPhoto ProductPhoto { get; set; }
 
 
 
-        
-        [BsonRepresentation(BsonType.ObjectId)]
         public string ProductInfoID { get; set; }
         [BsonIgnore]
         public ProductInfo ProductInfo { get; set; }

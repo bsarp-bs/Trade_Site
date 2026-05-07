@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Trade_Site_Cargo_BusinessLayer.Services;
 using Trade_Site_Cargo_DtoLayer.DTOs.CargoCabDTOs;
@@ -6,6 +7,7 @@ using Trade_Site_Cargo_EntityLayer.Concrete;
 
 namespace Trade_Site_Cargo_WebAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CargoCabController : ControllerBase

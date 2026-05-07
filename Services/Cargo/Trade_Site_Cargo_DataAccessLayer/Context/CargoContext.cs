@@ -8,10 +8,11 @@ namespace Trade_Site_Cargo_DataAccessLayer.Context
 {
     public class CargoContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public CargoContext(DbContextOptions<CargoContext> options) : base(options)
         {
-            optionsBuilder.UseSqlServer("Server=localhost,1441;Database=TradeSite_Project_CargoDB;User Id=sa;Password=1234567Ka*;TrustServerCertificate=True;");
+
         }
+
 
         public DbSet<CargoDetail> CargoDetails { get; set; }
         public DbSet<CargoStatus> CargoStatuses { get; set; }

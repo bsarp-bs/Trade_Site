@@ -1,0 +1,64 @@
+﻿@model Trade_Site_WebUI_Dto_Layer.UI_Product_DTOs.UI_UpdateProductDto
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Areas/AdminArea/Views/AdminLayout/AdminLayoutIndex.cshtml";
+}
+
+<div class="card">
+    <div class="col-md-12">
+        <div class="card-body">
+
+            <h4 class="card-title">Add Product</h4>
+            <form class="forms-sample"
+                  method="post"
+                  asp-area="AdminArea"
+                  asp-action="UpdateProduct"
+                  asp-controller="AdminProduct">
+
+                  <input type="hidden" asp-for="ProductID" />
+
+                <div class="form-group">
+                    <label asp-for="ProductName"></label>
+                    <input asp-for="ProductName" class="form-control" />
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="ProductPrice"></label>
+                    <input asp-for="ProductPrice" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ProductUrl"></label>
+                    <input asp-for="ProductUrl" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ProductDesc"></label>
+                    <input asp-for="ProductDesc" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CategoryID"></label>
+                    <select asp-for="CategoryID" asp-items="ViewBag.CategorieList" class="form-control">
+                        <option value="">Kategori Seçiniz</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ProductPhotoID"></label>
+                    <input asp-for="ProductPhotoID" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ProductInfoID"></label>
+                    <input asp-for="ProductInfoID" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,43 @@
+﻿@model List<Trade_Site_WebUI_Dto_Layer.UI_Category_DTOs.UI_ShowCategoryDto>
+@{
+    ViewData["Title"] = "AdminCategoryIndex";
+    Layout = "~/Areas/AdminArea/Views/AdminLayout/AdminLayoutIndex.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Bordered Table</h4>
+                <p>Add <code>.table-bordered</code> for borders on all sides of the table and cells.</p>
+                <div class="bs-example" data-example-id="bordered-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Catalogue Name</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.CategoryID</td>
+                                    <td>@item.CategoryName</td>
+                                    <td><a href="~/AdminArea/AdminCategory/DeleteCategory/@item.CategoryID">Delete</a></td>
+                                    <td><a href="~/AdminArea/AdminCategory/UpdateCategory/@item.CategoryID">Update</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    <a href="~/AdminArea/AdminCategory/AddCategory" class="btn btn-primary">Add Category</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

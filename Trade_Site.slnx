@@ -10,6 +10,9 @@
   <Folder Name="/Services/Cart/">
     <Project Path="Services/Cart/Trade_Site_Cart_WebAPI/Trade_Site_Cart_WebAPI.csproj" Id="d667ea4a-d035-4c12-b098-67836f9e5fdd" />
   </Folder>
+  <Folder Name="/Services/Auth/">
+    <Project Path="Services/Auth/Trade_Site_Auth_WebAPI/Trade_Site_Auth_WebAPI.csproj" />
+  </Folder>
   <Folder Name="/Services/Catalogue/">
     <Project Path="Services/Catalogue/Trade_Site_Catalogue/Trade_Site_Catalogue.csproj" />
   </Folder>
@@ -26,5 +29,9 @@
   </Folder>
   <Folder Name="/Services/Price_Drop/">
     <Project Path="Services/Price_Drop/Trade_Site_Price_Drop/Trade_Site_Price_Drop.csproj" Id="218b1843-c1fc-47a1-aeb0-31582e3c76a3" />
+  </Folder>
+  <Folder Name="/UI/">
+    <Project Path="UI/Trade_Site_WebUI/Trade_Site_WebUI.csproj" Id="bfe7e686-f09f-4091-8de9-3b45004964d5" />
+    <Project Path="UI/Trade_Site_WebUI_Dto_Layer/Trade_Site_WebUI_Dto_Layer.csproj" Id="a66500f5-7403-4683-b02c-1dee5a766276" />
   </Folder>
 </Solution>
