@@ -9,9 +9,7 @@ namespace Trade_Site_Catalogue.Entity
         [BsonRepresentation(BsonType.ObjectId)]
         public string CategoryID { get; set; }
         public string CategoryName { get; set; }
-
-
-
+        public string CategoryImageURL { get; set; }
 
     }
 }

@@ -50,5 +50,13 @@ namespace Trade_Site_Catalogue.Controllers
             await _productService.DeleteProductAsync(id);
             return Ok();
         }
+
+        [HttpGet("GetProductsWithCategory")]
+        public async Task<IActionResult> GetProductsWithCategory(string id)
+        {
+            var value = await _productService.GetProductsWithCategoryAsync(id);
+            return Ok(value);
+        }
+
     }
 }

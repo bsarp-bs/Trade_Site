@@ -13,5 +13,7 @@ namespace Trade_Site_Catalogue.Services.ProductInfoServiceFiles
         Task<List<ShowProductInfoDto>> GetAllProductInfosAsync();
 
         Task<GetByIdProductInfoDto> GetProductInfoByIdAsync(string id);
+
+        Task<GetProductInfoWithProductID> GetProductInfoWithProductIDAsync(string id);
     }
 }

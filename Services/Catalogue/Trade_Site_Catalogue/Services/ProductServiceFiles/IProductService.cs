@@ -13,5 +13,8 @@ namespace Trade_Site_Catalogue.Services.ProductServiceFiles
         Task<List<ShowProductDto>> GetAllProductsAsync();
 
         Task<ShowProductDto> GetProductByIdAsync(string id);
+
+        Task<List<GetProductWithCategory>> GetProductsWithCategoryAsync(string id);
+
     }
 }

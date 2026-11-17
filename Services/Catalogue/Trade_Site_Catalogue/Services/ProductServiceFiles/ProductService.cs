@@ -46,6 +46,14 @@ namespace Trade_Site_Catalogue.Services.ProductServiceFiles
             return _mapper.Map<ShowProductDto>(value);
         }
 
+        public async Task<List<GetProductWithCategory>> GetProductsWithCategoryAsync(string id)
+        {
+            var value = await _products.Find(x => x.CategoryID == id).ToListAsync();
+
+            return _mapper.Map<List<GetProductWithCategory>>(value);
+        }
+
+
         public async Task UpdateProductAsync(UpdateProductDto updateProductDto)
         {
             var value = _mapper.Map<Product>(updateProductDto);

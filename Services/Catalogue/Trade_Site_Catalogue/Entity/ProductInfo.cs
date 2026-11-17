@@ -8,6 +8,8 @@ namespace Trade_Site_Catalogue.Entity
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string ProductInfoID { get; set; }
+
+        public string ProductID { get; set; }
         public string ProductDesc { get; set; }
         public string ProductDetailDesc { get; set; }
     }

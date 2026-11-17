@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Trade_Site_Catalogue.DTOs.CategoryDTOs;
 using Trade_Site_Catalogue.DTOs.ProductDTOs;
+using Trade_Site_Catalogue.DTOs.ProductInfoDTOs;
+using Trade_Site_Catalogue.DTOs.ProductPhotoDTOs;
 using Trade_Site_Catalogue.Entity;
 
 namespace Trade_Site_Catalogue.DTOs.Mapper
@@ -18,16 +20,18 @@ namespace Trade_Site_Catalogue.DTOs.Mapper
             CreateMap<UpdateProductDto, Product>().ReverseMap();
             CreateMap<ShowProductDto, Product>().ReverseMap();
             CreateMap<GetByIdProductDto, Product>().ReverseMap();
+            CreateMap<GetProductWithCategory, Product>().ReverseMap();
 
-            CreateMap<InsertProductDto, ProductInfo>().ReverseMap();
-            CreateMap<UpdateProductDto, ProductInfo>().ReverseMap();
-            CreateMap<ShowProductDto, ProductInfo>().ReverseMap();
-            CreateMap<GetByIdProductDto, ProductInfo>().ReverseMap();
+            CreateMap<InsertProductInfoDto, ProductInfo>().ReverseMap();
+            CreateMap<UpdateProductInfoDto, ProductInfo>().ReverseMap();
+            CreateMap<ShowProductInfoDto, ProductInfo>().ReverseMap();
+            CreateMap<GetByIdProductInfoDto, ProductInfo>().ReverseMap();
+            CreateMap<GetProductInfoWithProductID, ProductInfo>().ReverseMap();
 
-            CreateMap<InsertProductDto, ProductPhoto>().ReverseMap();
-            CreateMap<UpdateProductDto, ProductPhoto>().ReverseMap();
-            CreateMap<ShowProductDto, ProductPhoto>().ReverseMap();
-            CreateMap<GetByIdProductDto, ProductPhoto>().ReverseMap();
+            CreateMap<InsertProductPhotoDto, ProductPhoto>().ReverseMap();
+            CreateMap<UpdateProductPhotoDto, ProductPhoto>().ReverseMap();
+            CreateMap<ShowProductPhotoDto, ProductPhoto>().ReverseMap();
+            CreateMap<GetByIdProductPhotoDto, ProductPhoto>().ReverseMap();
 
         }
     }
