@@ -10,5 +10,6 @@ namespace Trade_Site_Demand_Application.Feature.Mediator.Results.OrderMainResult
         public string UserID { get; set; }
         public int TotalPrice { get; set; }
         public DateTime OrderMainDate { get; set; }
+        public string OrderStatus { get; set; }
     }
 }

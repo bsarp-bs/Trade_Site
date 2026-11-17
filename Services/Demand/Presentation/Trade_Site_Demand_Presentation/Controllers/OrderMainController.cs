@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trade_Site_Demand_Application.Feature.Mediator.Commands.OrderMainCommands;
@@ -8,6 +9,7 @@ namespace Trade_Site_Demand_Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrderMainController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -18,6 +20,7 @@ namespace Trade_Site_Demand_Presentation.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var value = await _mediator.Send(new GetOrderMainQuery());
@@ -25,6 +28,7 @@ namespace Trade_Site_Demand_Presentation.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
         {
             var value = await _mediator.Send(new GetOrderMainByIdQuery(id));
@@ -34,8 +38,8 @@ namespace Trade_Site_Demand_Presentation.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(CreateOrderMainCommand createOrderMainCommand)
         {
-            await _mediator.Send(createOrderMainCommand);
-            return Ok();
+            var ordermainid = await _mediator.Send(createOrderMainCommand);
+            return Ok(ordermainid);
         }
 
         [HttpPut]
@@ -51,6 +55,13 @@ namespace Trade_Site_Demand_Presentation.Controllers
             await _mediator.Send(new DeleteOrderMainCommand(id));
             return Ok();
         }
+
+        [HttpGet("GetByUser/{userId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetByUser(string userId)
+        {
+            var value = await _mediator.Send(new GetOrderMainByUserIdQuery(userId));
+            return Ok(value);
+        }
     }
 }
-        

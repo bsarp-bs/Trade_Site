@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trade_Site_Demand_Application.Feature.CQRS.Commands.OrderDetailCommands;
 using Trade_Site_Demand_Application.Feature.CQRS.Handlers.OrderDetailHandlers;
@@ -8,6 +9,7 @@ namespace Trade_Site_Demand_Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrderDetailController : ControllerBase
     {
         private readonly CreateOrderDetailCommandHandler _createOrderDetailCommandHandler;
@@ -31,6 +33,7 @@ namespace Trade_Site_Demand_Presentation.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var value = await _getOrderDetailQueryHandler.Handle();
@@ -59,10 +62,20 @@ namespace Trade_Site_Demand_Presentation.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
         {
             var value = await _getOrderDetailByIdQueryHandler.Handle(new GetOrderDetailByIdQuery(id));
             return Ok(value);
+        }
+
+        [HttpGet("GetByOrderMainId/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetByOrderMainId(int id)
+        {
+            var values = await _getOrderDetailQueryHandler.Handle();
+            var filtered = values.Where(x => x.OrderMainID == id).ToList();
+            return Ok(filtered);
         }
     }
 }

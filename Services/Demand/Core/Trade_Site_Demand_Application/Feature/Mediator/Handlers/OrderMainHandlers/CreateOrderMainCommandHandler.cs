@@ -8,7 +8,7 @@ using Trade_Site_Demand_Domain;
 
 namespace Trade_Site_Demand_Application.Feature.Mediator.Handlers.OrderMainHandlers
 {
-    public class CreateOrderMainCommandHandler : IRequestHandler<CreateOrderMainCommand>
+    public class CreateOrderMainCommandHandler : IRequestHandler<CreateOrderMainCommand,int>
     {
         private readonly IGenericInterface<OrderMain> _genericInterface;
 
@@ -17,16 +17,18 @@ namespace Trade_Site_Demand_Application.Feature.Mediator.Handlers.OrderMainHandl
             _genericInterface = genericInterface;
         }
 
-        public async Task<Unit> Handle(CreateOrderMainCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateOrderMainCommand request, CancellationToken cancellationToken)
         {
-            await _genericInterface.AddAsync(new OrderMain
+            var orderMain = new OrderMain
             {
                 TotalPrice = request.TotalPrice,
                 UserID = request.UserID,
                 OrderMainDate = request.OrderMainDate
-            });
+            };
 
-            return Unit.Value;
+            await _genericInterface.AddAsync(orderMain);
+
+            return orderMain.OrderMainID;
         }
 
     }

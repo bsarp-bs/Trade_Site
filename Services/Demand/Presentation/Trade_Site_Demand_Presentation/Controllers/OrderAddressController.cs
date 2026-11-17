@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Trade_Site_Demand_Application.Feature.CQRS.Commands.AdressCommands;
 using Trade_Site_Demand_Application.Feature.CQRS.Handlers.AdressHandlers;
@@ -8,6 +9,7 @@ namespace Trade_Site_Demand_Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrderAddressController : ControllerBase
     {
         private readonly CreateOrderAdressCommandHandler _createOrderAdressCommandHandler;

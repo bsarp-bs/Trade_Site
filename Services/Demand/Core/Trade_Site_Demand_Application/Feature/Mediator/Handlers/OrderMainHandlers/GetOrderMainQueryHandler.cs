@@ -27,7 +27,8 @@ namespace Trade_Site_Demand_Application.Feature.Mediator.Handlers.OrderMainHandl
                 OrderMainDate = om.OrderMainDate,
                 TotalPrice = om.TotalPrice,
                 OrderMainID = om.OrderMainID,
-                UserID = om.UserID
+                UserID = om.UserID,
+                OrderStatus = "Hazirlaniyor"
             }).ToList();
 
             return results;

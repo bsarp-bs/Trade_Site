@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Trade_Site_Demand_Application.Feature.Mediator.Commands.OrderMainCommands
 {
-    public class CreateOrderMainCommand : IRequest
+    public class CreateOrderMainCommand : IRequest<int>
     {
         public string UserID { get; set; }
 
