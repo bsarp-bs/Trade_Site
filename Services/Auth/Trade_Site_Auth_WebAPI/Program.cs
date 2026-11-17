@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using System.Text;
+using Trade_Site_Auth_WebAPI.Context;
 using Trade_Site_Auth_WebAPI.Services;
 using Trade_Site_Auth_WebAPI.Settings;
 
@@ -12,7 +14,10 @@ builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"))
 var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>() ?? new JwtSettings();
 var signingKey = Encoding.UTF8.GetBytes(jwtSettings.Key);
 
-builder.Services.AddSingleton<IUserStoreService, InMemoryUserStoreService>();
+builder.Services.AddDbContext<AuthDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IUserStoreService, EfUserStoreService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
