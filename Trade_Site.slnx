@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/OcelotGateway/">
+    <Project Path="OcelotGateway/Trade_Site_OcelotGateway/Trade_Site_OcelotGateway.csproj" Id="dc65ae39-c3b3-4fba-858f-89033bf1b080" />
+  </Folder>
   <Folder Name="/Services/" />
   <Folder Name="/Services/Cargo/">
     <Project Path="Services/Cargo/Trade_Site_Cargo_BusinessLayer/Trade_Site_Cargo_BusinessLayer.csproj" Id="1dd26597-65af-4572-83b3-166e1c7b712d" />
