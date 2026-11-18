@@ -2,11 +2,11 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5255
+          "Port": 7200
         }
       ],
       "UpstreamPathTemplate": "/Services/Catalogue/{everything}",
@@ -16,7 +16,7 @@
     //Price Drop
     {
       "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
@@ -30,7 +30,7 @@
     //Demand
     {
       "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
@@ -47,7 +47,7 @@
      //Comments
     {
       "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
@@ -61,11 +61,11 @@
      //Cart
     {
       "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5208
+          "Port": 7130
         }
       ],
       "UpstreamPathTemplate": "/Services/Cart/{everything}",
@@ -78,7 +78,7 @@
      //Cargo
     {
       "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
