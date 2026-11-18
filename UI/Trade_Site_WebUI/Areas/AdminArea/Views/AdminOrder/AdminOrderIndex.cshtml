@@ -1,0 +1,56 @@
+@model List<Trade_Site_WebUI_Dto_Layer.UI_Demand_DTOs.UI_GetOrderMainDto>
+@{
+    ViewData["Title"] = "AdminOrderIndex";
+    Layout = "~/Areas/AdminArea/Views/AdminLayout/AdminLayoutIndex.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Orders Table</h4>
+                <p>All customer orders are listed below.</p>
+                <div class="bs-example" data-example-id="bordered-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>User ID</th>
+                                <th>Order Date</th>
+                                <th>Total Price</th>
+                                <th>Status</th>
+                                <th>Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Any())
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.OrderMainID</td>
+                                        <td>@item.UserID</td>
+                                        <td>@item.OrderMainDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                        <td>$@item.TotalPrice</td>
+                                        <td>
+                                            <span class="label label-warning">@item.OrderStatus</span>
+                                        </td>
+                                        <td>
+                                            <a href="~/AdminArea/AdminOrder/OrderDetail/@item.OrderMainID">Detail</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="6" class="text-center">No orders found.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

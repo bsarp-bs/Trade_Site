@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Trade_Site_WebUI_Dto_Layer.UI_Category_DTOs;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using System;
 
 namespace Trade_Site_WebUI.Areas.AdminArea.Controllers
 {
@@ -40,12 +43,29 @@ namespace Trade_Site_WebUI.Areas.AdminArea.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCategory(UI_AddCategoryDto model)
+        public async Task<IActionResult> AddCategory(UI_AddCategoryDto model,IFormFile imagefile)
         {
-            if (!ModelState.IsValid)
+            if (imagefile != null && imagefile.Length > 0)
             {
-                return View(model);
+                var extension = Path.GetExtension(imagefile.FileName);
+                var fileName = Guid.NewGuid().ToString() + extension;
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "categories");
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                var filePath = Path.Combine(folderPath, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await imagefile.CopyToAsync(stream);
+                }
+
+                model.CategoryImageURL = "/uploads/categories/" + fileName;
             }
+
 
             var client = _httpClientFactory.CreateClient();
             var response = await client.PostAsJsonAsync("https://localhost:7200/api/Category", model);
@@ -88,8 +108,29 @@ namespace Trade_Site_WebUI.Areas.AdminArea.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> UpdateCategory(UI_UpdateCategoryDto model)
+        public async Task<IActionResult> UpdateCategory(UI_UpdateCategoryDto model, IFormFile imagefile)
         {
+            if (imagefile != null && imagefile.Length > 0)
+            {
+                var extension = Path.GetExtension(imagefile.FileName);
+                var fileName = Guid.NewGuid().ToString() + extension;
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "categories");
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                var filePath = Path.Combine(folderPath, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await imagefile.CopyToAsync(stream);
+                }
+
+                model.CategoryImageURL = "/uploads/categories/" + fileName;
+            }
+
             var client = _httpClientFactory.CreateClient();
             var value = await client.PutAsJsonAsync("https://localhost:7200/api/Category/", model);
 

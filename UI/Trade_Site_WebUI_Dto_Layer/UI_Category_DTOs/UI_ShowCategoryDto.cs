@@ -9,5 +9,9 @@ namespace Trade_Site_WebUI_Dto_Layer.UI_Category_DTOs
         public string CategoryID { get; set; }
         public string CategoryName { get; set; }
 
+        public string CategoryImageURL { get; set; }
+
+        public int CategoryCount { get; set; }
+
     }
 }

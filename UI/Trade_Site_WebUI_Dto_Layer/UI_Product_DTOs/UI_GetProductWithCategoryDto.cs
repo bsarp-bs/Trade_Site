@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Trade_Site_WebUI_Dto_Layer.UI_Category_DTOs;
+
+namespace Trade_Site_WebUI_Dto_Layer.UI_Product_DTOs
+{
+    public class UI_GetProductWithCategoryDto
+    {
+        public string ProductID { get; set; }
+        public string ProductName { get; set; }
+        public int ProductPrice { get; set; }
+        public string ProductUrl { get; set; }
+        public string ProductDesc { get; set; }
+
+
+        public string CategoryID { get; set; }
+
+        public string ProductPhotoID { get; set; }
+
+        public string ProductInfoID { get; set; }
+
+        public UI_ShowProductDto Category { get; set; }
+
+    }
+}

@@ -1,0 +1,44 @@
+﻿@model Trade_Site_WebUI_Dto_Layer.UI_Comment_DTOs.UI_AddCommentDto
+
+<div class="col-md-6">
+    <h4 class="mb-4">Leave a review</h4>
+    <small>Your email address will not be published. Required fields are marked *</small>
+
+    <form method="post"
+          asp-action="AddCommentP"
+          asp-controller="CustomerScreenProductList">
+
+        <input asp-for="ProductID" type="hidden" />
+
+        <div class="form-group">
+            <label asp-for="Rating"></label>
+            <select asp-for="Rating" class="form-control" required>
+                <option value="">Puan seçiniz</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CommentDetail"></label>
+            <textarea asp-for="CommentDetail" cols="30" rows="5" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="NameSurname"></label>
+            <input asp-for="NameSurname" class="form-control" id="name" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" id="email" />
+        </div>
+
+        <div class="form-group mb-0">
+            <input type="submit" value="Leave Your Review" class="btn btn-primary px-3" />
+        </div>
+    </form>
+</div>

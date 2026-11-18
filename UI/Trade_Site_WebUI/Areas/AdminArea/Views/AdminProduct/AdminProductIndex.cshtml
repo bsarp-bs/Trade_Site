@@ -18,6 +18,7 @@
                                 <th>Product Name</th>
                                 <th>Product Price</th>
                                 <th>Category Name</th>
+                                <th>Product Image</th>
                                 <th>Delete</th>
                                 <th>Update</th>
                             </tr>
@@ -30,6 +31,9 @@
                                     <td>@item.ProductName</td>
                                     <td>@item.ProductPrice</td>
                                     <td>@item.CategoryName</td>
+                                    <td>
+                                        <img src="@item.ProductUrl" style="width:100px; height:100px; object-fit:cover;" />
+                                    </td>
                                     <td><a href="~/AdminArea/AdminProduct/DeleteProduct/@item.ProductID">Delete</a></td>
                                     <td><a href="~/AdminArea/AdminProduct/UpdateProduct/@item.ProductID">Update</a></td>
                                 </tr>

@@ -11,6 +11,7 @@
             <h4 class="card-title">Add Product</h4>
             <form class="forms-sample"
                   method="post"
+                  enctype="multipart/form-data"
                   asp-area="AdminArea"
                   asp-action="AddProduct"
                   asp-controller="AdminProduct">
@@ -26,8 +27,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="ProductUrl"></label>
-                    <input asp-for="ProductUrl" class="form-control" />
+                    <label>Product Image</label>
+                    <input type="file" name="imageFile" class="form-control" />
                 </div>
 
                 <div class="form-group">

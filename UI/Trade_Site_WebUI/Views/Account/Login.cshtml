@@ -1,0 +1,54 @@
+@model Trade_Site_WebUI_Dto_Layer.UI_Auth_DTOs.UI_LoginRequestDto
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/colorlib-regform-30/css/opensans-font.css">
+    <link rel="stylesheet" type="text/css" href="~/colorlib-regform-30/fonts/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+    <link rel="stylesheet" href="~/colorlib-regform-30/css/style.css" />
+</head>
+<body class="form-v4">
+    <div class="page-content">
+        <div class="form-v4-content">
+            <div class="form-left">
+                <h2>WELCOME BACK</h2>
+                <div class="form-left-last">
+                    <a asp-action="Register" asp-controller="Account" class="account">Create Account</a>
+                </div>
+            </div>
+
+            <form class="form-detail" method="post" id="loginform">
+                <h2>LOGIN FORM</h2>
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-row">
+                    <label asp-for="UsernameOrEmail">Username or Email</label>
+                    <input asp-for="UsernameOrEmail" class="input-text" />
+                    <span asp-validation-for="UsernameOrEmail" class="text-danger"></span>
+                </div>
+
+                <div class="form-row">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" class="input-text" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-row-last">
+                    <input type="submit" class="register" value="Login">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <partial name="_ValidationScriptsPartial" />
+</body>
+</html>

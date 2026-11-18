@@ -16,6 +16,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Catalogue Name</th>
+                                <th>Catalogue Image</th>
                                 <th>Delete</th>
                                 <th>Update</th>
                             </tr>
@@ -26,6 +27,9 @@
                                 <tr>
                                     <td>@item.CategoryID</td>
                                     <td>@item.CategoryName</td>
+                                    <td>
+                                        <img src="@item.CategoryImageURL" style="width:100px; height:100px; object-fit:cover;" />
+                                    </td>
                                     <td><a href="~/AdminArea/AdminCategory/DeleteCategory/@item.CategoryID">Delete</a></td>
                                     <td><a href="~/AdminArea/AdminCategory/UpdateCategory/@item.CategoryID">Update</a></td>
                                 </tr>

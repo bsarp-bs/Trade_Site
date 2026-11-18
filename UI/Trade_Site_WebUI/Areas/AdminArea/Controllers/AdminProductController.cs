@@ -48,6 +48,7 @@ namespace Trade_Site_WebUI.Areas.AdminArea.Controllers
 
         [HttpGet]
         public async Task<IActionResult> AddProduct()
+
         {
             var client2 = _httpClientFactory.CreateClient();
 
@@ -64,8 +65,29 @@ namespace Trade_Site_WebUI.Areas.AdminArea.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddProduct(UI_AddProductDto model)
+        public async Task<IActionResult> AddProduct(UI_AddProductDto model, IFormFile imagefile)
         {
+            if (imagefile != null && imagefile.Length > 0)
+            {
+                var extension = Path.GetExtension(imagefile.FileName);
+                var fileName = Guid.NewGuid().ToString() + extension;
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "products");
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                var filePath = Path.Combine(folderPath, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await imagefile.CopyToAsync(stream);
+                }
+
+                model.ProductUrl = "/uploads/products/" + fileName;
+            }
+
             var client2 = _httpClientFactory.CreateClient();
 
             var categories = await client2.GetFromJsonAsync<List<UI_ShowCategoryDto>>("https://localhost:7200/api/Category");
@@ -136,8 +158,29 @@ namespace Trade_Site_WebUI.Areas.AdminArea.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateProduct(UI_UpdateProductDto model)
+        public async Task<IActionResult> UpdateProduct(UI_UpdateProductDto model, IFormFile imagefile)
         {
+            if (imagefile != null && imagefile.Length > 0)
+            {
+                var extension = Path.GetExtension(imagefile.FileName);
+                var fileName = Guid.NewGuid().ToString() + extension;
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "products");
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                var filePath = Path.Combine(folderPath, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await imagefile.CopyToAsync(stream);
+                }
+
+                model.ProductUrl = "/uploads/products/" + fileName;
+            }
+
             await LoadCategories();
 
             var client = _httpClientFactory.CreateClient();

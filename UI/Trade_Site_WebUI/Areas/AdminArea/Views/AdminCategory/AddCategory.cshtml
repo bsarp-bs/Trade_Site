@@ -11,13 +11,20 @@
             <h4 class="card-title">Add Category</h4>
             <form class="forms-sample"
                   method="post"
+                  enctype="multipart/form-data"
                   asp-area="AdminArea"
                   asp-action="AddCategory"
                   asp-controller="AdminCategory">
 
+
                 <div class="form-group">
                     <label asp-for="CategoryName"></label>
                     <input asp-for="CategoryName" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Category Image</label>
+                    <input type="file" name="imageFile" class="form-control" />
                 </div>
 
                 <button type="submit" class="btn btn-outline-primary">Submit</button>
