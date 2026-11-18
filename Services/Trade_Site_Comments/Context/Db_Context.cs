@@ -19,8 +19,8 @@ namespace Trade_Site_Comments.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=.\\SQLEXPRESS;database=TradeSiteProject;integrated security=true;" +
-                "TrustServerCertificate=True;");
+            // Same connection string as CreateConnection() (ConnectionStrings:DefaultConnection), read from configuration.
+            optionsBuilder.UseSqlServer(_connectionstring);
         }
 
         public DbSet<Comment> UserComments { get; set; }

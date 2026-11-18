@@ -20,8 +20,8 @@ namespace Trade_Site_Price_Drop.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=.\\SQLEXPRESS;database=TradeSiteProject;integrated security=true;" +
-                "TrustServerCertificate=True;");
+            // Same connection string Dapper uses (ConnectionStrings:DefaultConnection), so EF migrations and queries hit one database.
+            optionsBuilder.UseSqlServer(_connectionstring);
         }
 
         public DbSet<Discount> Discounts { get; set; }
