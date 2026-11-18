@@ -12,6 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 
 var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>() ?? new JwtSettings();
+// HS256 needs a key of at least 256 bits; the key itself lives in user-secrets / environment, not in appsettings.
+if (Encoding.UTF8.GetByteCount(jwtSettings.Key) < 32)
+{
+    throw new InvalidOperationException(
+        "Jwt:Key must be set to at least 32 bytes. Set it with dotnet user-secrets or the Jwt__Key environment variable (see README).");
+}
 var signingKey = Encoding.UTF8.GetBytes(jwtSettings.Key);
 
 builder.Services.AddDbContext<AuthDbContext>(options =>

@@ -17,8 +17,15 @@ var builder = WebApplication.CreateBuilder(args);
 // AutoMapper
 builder.Services.AddAutoMapper(typeof(Mapper));
 
-builder.Services.AddDbContext<CargoContext>(options =>
-    options.UseSqlServer("Server=localhost,1441;Database=TradeSite_Project_CargoDB;User Id=sa;Password=1234567Ka*;TrustServerCertificate=True;"));
+// Connection string comes from configuration (user-secrets / environment), never from code.
+var cargoDb = builder.Configuration.GetConnectionString("CargoDb");
+if (string.IsNullOrWhiteSpace(cargoDb))
+{
+    throw new InvalidOperationException(
+        "ConnectionStrings:CargoDb is not configured. Set it with dotnet user-secrets or the ConnectionStrings__CargoDb environment variable (see README).");
+}
+
+builder.Services.AddDbContext<CargoContext>(options => options.UseSqlServer(cargoDb));
 
 
 builder.Services.AddScoped<ICargoDetailService, CargoDetailManager>();
@@ -40,6 +47,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var jwtKey = builder.Configuration["Jwt:Key"] ?? string.Empty;
+if (Encoding.UTF8.GetByteCount(jwtKey) < 32)
+{
+    throw new InvalidOperationException(
+        "Jwt:Key must be set to at least 32 bytes and match the Auth service. Set it with dotnet user-secrets or the Jwt__Key environment variable (see README).");
+}
 var jwtIssuer = builder.Configuration["Jwt:Issuer"];
 var jwtAudience = builder.Configuration["Jwt:Audience"];
 

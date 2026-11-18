@@ -4,6 +4,8 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <!-- One user-secrets store shared by all projects for local development (see README > Configuration) -->
+    <UserSecretsId>trade-site-dev</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

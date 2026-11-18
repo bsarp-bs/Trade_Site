@@ -8,9 +8,9 @@ namespace Trade_Site_Infrastructure_Persistence.Context
 {
     public class DemandContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // Provider and connection string are configured by the host (Presentation/Program.cs).
+        public DemandContext(DbContextOptions<DemandContext> options) : base(options)
         {
-            optionsBuilder.UseSqlServer("Server=localhost,1440;Database=TradeSite_Project;User Id=sa;Password=1234567Ka*;TrustServerCertificate=True;");
         }
 
 
