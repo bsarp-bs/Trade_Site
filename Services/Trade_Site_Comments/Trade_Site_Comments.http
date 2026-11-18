@@ -1,0 +1,6 @@
+@Trade_Site_Comments_HostAddress = http://localhost:5100
+
+GET {{Trade_Site_Comments_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

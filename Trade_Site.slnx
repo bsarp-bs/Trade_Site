@@ -16,6 +16,9 @@
   <Folder Name="/Services/Catalogue/">
     <Project Path="Services/Catalogue/Trade_Site_Catalogue/Trade_Site_Catalogue.csproj" />
   </Folder>
+  <Folder Name="/Services/Comments/">
+    <Project Path="Services/Trade_Site_Comments/Trade_Site_Comments.csproj" Id="7de3b2f8-9d09-486b-91a8-f70a02247cda" />
+  </Folder>
   <Folder Name="/Services/Demand/" />
   <Folder Name="/Services/Demand/Core/">
     <Project Path="Services/Demand/Core/Trade_Site_Demand_Application/Trade_Site_Demand_Application.csproj" Id="7a9b828c-d569-404d-bf20-ef51bb6f362b" />
