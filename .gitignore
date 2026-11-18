@@ -361,3 +361,10 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Local .NET CLI home / NuGet temp config (machine-specific, never commit)
+.dotnet/
+NuGet.Temp.Config
+
+# Images uploaded through the admin panel at runtime
+UI/Trade_Site_WebUI/wwwroot/uploads/
